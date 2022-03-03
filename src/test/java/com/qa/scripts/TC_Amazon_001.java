@@ -31,6 +31,7 @@ public class TC_Amazon_001 extends BaseScript {
 		boolean status = driver.getTitle().contains(itemName);
 		
 		if(status) {
+			captureScreenshot(driver, "searchItem");
 			Reporter.log("Title of the page has item name");
 			SAssert.assertTrue(status);		
 		}else {

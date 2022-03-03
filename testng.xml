@@ -11,8 +11,8 @@
 	<parameter name="url" value="https://www.amazon.in/" />
     <classes>
       <class name="com.qa.scripts.TC_Amazon_001" />
-	  <class name="com.qa.scripts.TC_Amazon_002" />
-	  <class name="com.qa.scripts.TC_Amazon_003" />
+	  <!--<class name="com.qa.scripts.TC_Amazon_002" />
+	  <class name="com.qa.scripts.TC_Amazon_003" />-->
     </classes>
   </test> 
 
@@ -25,14 +25,6 @@
     </classes>
   </test>
 
-  <test thread-count="5" name="Functional Testing - MultiWindows" parallel="classes">
-  	<parameter name="Browser" value="Chrome" />
-	<parameter name="url" value="https://www.citibank.co.in/" />
-    <classes>
-      <class name="com.qa.scripts.TC_WorkingWithMultiWindows" />
-    </classes>
-  </test>
-
   <test thread-count="5" name="Functional Testing - popup" parallel="classes">
   	<parameter name="Browser" value="Chrome" />
 	<parameter name="url" value="http://register.rediff.com/register/register.php?FormName=user_details/" />
@@ -41,12 +33,19 @@
     </classes>
   </test>
 
-
   <test thread-count="5" name="Functional Testing - MiniFB" parallel="classes">
   	<parameter name="Browser" value="Chrome" />
 	<parameter name="url" value="https://automationtesting-team-9-mini-fb.000webhostapp.com/" />
     <classes>
       <class name="com.qa.scripts.TC_MiniFB_001" />
+    </classes>
+  </test>
+
+  <test thread-count="5" name="Functional Testing - MultiWindows" parallel="classes">
+  	<parameter name="Browser" value="Chrome" />
+	<parameter name="url" value="https://www.citibank.co.in/" />
+    <classes>
+      <class name="com.qa.scripts.TC_WorkingWithMultiWindows" />
     </classes>
   </test>
 

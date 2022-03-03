@@ -26,6 +26,7 @@ public class Reporting extends TestListenerAdapter{
 	  // LoC to configure the extent reports
 	  // create a new HTML reports on every test execution triggered by testng.xml
 	  // HTML file should be casted as ExtentReport
+	
 	  public void onStart(ITestContext testContext) {
 		  // Location and file name for the HTML reports
 		  
@@ -54,6 +55,17 @@ public class Reporting extends TestListenerAdapter{
 		  xTest = xReports.createTest(tr.getName());
 		  xTest.log(Status.PASS, "Test is passed");
 		  xTest.log(Status.PASS, MarkupHelper.createLabel(tr.getName(), ExtentColor.GREEN));
+		  
+		  String ssPath = System.getProperty("user.dir")+"/Screenshots/"+tr.getName()+".png";
+		  File file = new File(ssPath);
+		  
+		  if(file.exists()) {
+		    try {
+		    	xTest.pass("Screenshot for the Passed test is : "+xTest.addScreenCaptureFromPath(ssPath));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}			  
+		  }
 	  }
 	
 	  public void onTestFailure(ITestResult tr) {

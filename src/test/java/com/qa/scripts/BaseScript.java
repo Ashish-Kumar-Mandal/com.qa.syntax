@@ -2,7 +2,6 @@ package com.qa.scripts;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -35,18 +34,16 @@ public class BaseScript {
 	@BeforeClass
 	public void setUp(String Browser, String url) throws IOException {	
 		
-		try {
-			fileLoc = new FileInputStream(System.getProperty("user.dir")+"/src/test/java/com/qa/testdata/credentials.properties");
-			prop = new Properties();
-			prop.load(fileLoc);			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		
+		fileLoc = new FileInputStream(System.getProperty("user.dir")+"/src/test/java/com/qa/testdata/credentials.properties");
+		prop = new Properties();
+		prop.load(fileLoc);	
 		
 		if(Browser.equalsIgnoreCase("Chrome")) {
 		  	// System.setProperty("webdriver.chrome.driver", "D:\\All My Core Programming\\Testing-with-Java\\com.qa.syntax\\SeleniumDrivers\\chromedriver.exe");
 			// -- OR --
 			WebDriverManager.chromedriver().setup();
+			
 			driver = new ChromeDriver();
 		}else if(Browser.equalsIgnoreCase("Edge")) {
 			WebDriverManager.edgedriver().setup();
